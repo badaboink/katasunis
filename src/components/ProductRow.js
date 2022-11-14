@@ -5,8 +5,9 @@ import sampleImage from '../pedigree.jpg';
 
 const ProductRow = () => {
   return (
-    <a href="/produktas" style={{ textDecoration: 'none'}}>
+    
     <div className="row product">
+      <a href="/produktas" style={{ textDecoration: 'none'}}>
       <div className="col-md-2">
         <img src={sampleImage} alt="Sample" height="150" />
       </div>
@@ -17,8 +18,10 @@ const ProductRow = () => {
       <div className="col-md-2 product-price">
         19.99 eur
       </div>
+      </a>
+      
     </div>
-    </a>
+    
   );
 }
 
