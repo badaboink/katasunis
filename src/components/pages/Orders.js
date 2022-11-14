@@ -1,5 +1,6 @@
 import React from "react";
 import "../../App.css";
+import "./Table.scss";
 import { Link } from "react-router-dom";
 
 export default function Orders() {
@@ -19,25 +20,25 @@ export default function Orders() {
       <div class="col col-5">Suma</div>
     </li>
     <li class="table-row">
-      <div class="col col-1" data-label="Paslauga">54126</div>
-      <div class="col col-2" data-label="Aprašymas">Kornelija Magylaitė</div>
-      <div class="col col-3" data-label="Trukmė">Chemikų g. 18-4, Kėdainiai</div>
-      <div class="col col-4" data-label="Kaina">Pampersai</div>
-      <div class="col col-5" data-label="Kaina">20€</div>
+      <div class="col col-1" data-label="Užsakymo nr.">54126</div>
+      <div class="col col-2" data-label="Klientas">Kornelija Magylaitė</div>
+      <div class="col col-3" data-label="Adresas">Chemikų g. 18-4, Kėdainiai</div>
+      <div class="col col-4" data-label="Prekės">Pampersai</div>
+      <div class="col col-5" data-label="Suma">20€</div>
     </li>
     <li class="table-row">
-      <div class="col col-1" data-label="Paslauga">84596</div>
-      <div class="col col-2" data-label="Aprašymas">Agnė Rauluševičiūtė</div>
-      <div class="col col-3" data-label="Trukmė">Pašilės g. 39, Kaunas</div>
-      <div class="col col-4" data-label="Kaina">Kačių ėdalas "Whiskas"</div>
-      <div class="col col-5" data-label="Kaina">7€</div>
+      <div class="col col-1" data-label="Užsakymo nr.">84596</div>
+      <div class="col col-2" data-label="Klientas">Agnė Rauluševičiūtė</div>
+      <div class="col col-3" data-label="Adresas">Pašilės g. 39, Kaunas</div>
+      <div class="col col-4" data-label="Prekės">Kačių ėdalas "Whiskas"</div>
+      <div class="col col-5" data-label="Suma">7€</div>
     </li>
     <li class="table-row">
-      <div class="col col-1" data-label="Paslauga">15489</div>
-      <div class="col col-2" data-label="Aprašymas">Mantas Jurgelaitis</div>
-      <div class="col col-3" data-label="Trukmė">KTU, XI r., 308b kab.</div>
-      <div class="col col-4" data-label="Kaina">Akvariumas</div>
-      <div class="col col-5" data-label="Kaina">200€</div>
+      <div class="col col-1" data-label="Užsakymo nr.">15489</div>
+      <div class="col col-2" data-label="Klientas">Mantas Jurgelaitis</div>
+      <div class="col col-3" data-label="Adresas">KTU, XI r., 308b kab.</div>
+      <div class="col col-4" data-label="Prekės">Akvariumas</div>
+      <div class="col col-5" data-label="Suma">200€</div>
     </li>
     
   </ul>

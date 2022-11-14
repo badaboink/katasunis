@@ -1,6 +1,6 @@
 import React from "react";
 import "../../App.css";
-import "./Services.scss"
+import "./Table.scss"
 import { Link } from "react-router-dom";
 
 export default function Services() {

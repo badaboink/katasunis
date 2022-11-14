@@ -12,7 +12,7 @@
 
 import React, { Component } from "react";
 import "../../App.css";
-import "./Basket.css";
+import "./Basket.scss";
 import ProductRow from "../ProductRow";
 import { Button } from "../Button";
 import { Link } from "react-router-dom";
@@ -34,16 +34,19 @@ class Basket extends Component {
           <div className="col-md-2">
             <img src={sampleImage} alt="Sample" height="150" />
           </div>
-          <div className="col-md-8 product-detail">
-            <h4>Šunų ėdalas "Pedigree"</h4>
-            <p>Tinka tiek mažiems, tiek jau paaugusiems šuniukams.</p>
-          </div>
-          <div className="col-md-2 product-price">
+          <div className="col-md-8 product-detail text">
+            <div> <h4>Šunų ėdalas "Pedigree"</h4>
+            <p>Tinka tiek mažiems, tiek jau paaugusiems šuniukams.</p></div>
+           
+            <div className="col-md-2 product-price">
             <p>19.99 eur</p>
-            <p>kiekis:</p>
-            <input type="int" />
+            <p>Kiekis:</p>
+            <input type="number" id="count" name="count"
+       min="0" max="100"/>
+
           </div>
-          <div>x</div>
+          </div>
+         
         </div>
         <div>
           <Link to="/pirkti">Pirkti</Link>
