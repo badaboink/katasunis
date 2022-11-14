@@ -29,7 +29,7 @@ function Navbar() {
       <nav className='navbar'>
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-            TRVL
+            KATAŠUNIS
             <i class='fab fa-typo3' />
           </Link>
           <div className='menu-icon' onClick={handleClick}>
@@ -38,39 +38,39 @@ function Navbar() {
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
               <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                Home
+                Pagrindinis puslapis
               </Link>
             </li>
             <li className='nav-item'>
               <Link
-                to='/services'
+                to='/paslaugos'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
-                Services
+                Paslaugos
               </Link>
             </li>
             <li className='nav-item'>
               <Link
-                to='/products'
+                to='/prekes'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
-                Products
+                Prekės
               </Link>
             </li>
-
             <li>
               <Link
-                to='/sign-up'
+                to='/prisijungimas'
                 className='nav-links-mobile'
                 onClick={closeMobileMenu}
               >
-                Sign Up
+                Prisijungti
               </Link>
             </li>
           </ul>
-          {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
+          {button && <Button buttonStyle='btn--outline'>PRISIJUNGTI</Button>}
+
         </div>
       </nav>
     </>
