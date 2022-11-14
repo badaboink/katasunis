@@ -7,6 +7,7 @@ import Services from './components/pages/Services';
 import Products from './components/pages/Products';
 import SignUp from './components/pages/SignUp';
 import Register from './components/pages/Register';
+import PrekesAdmin from './components/pages/PrekesAdmin';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path='/prekes' component={Products} />
           <Route path='/prisijungimas' component={SignUp} />
           <Route path='/registracija' component={Register} />
+          <Route path='/prekesadmin' component={PrekesAdmin} />
         </Switch>
       </Router>
     </>

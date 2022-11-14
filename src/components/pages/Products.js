@@ -23,6 +23,9 @@ function Products() {
         <h1>AUGINTINIŲ PREKĖS</h1>
       </header>
       <ProductList/>
+      <a href='./PrekesAdmin'>Kurti naują prekę</a>
+     
+      
     </div>
   );
 }
