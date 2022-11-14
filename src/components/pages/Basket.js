@@ -29,27 +29,45 @@ class Basket extends Component {
         <header className="header">
           <h1>Prekių krepšelis</h1>
         </header>
-        <div className="row product">
-          <Link to="/salinti">X</Link>
-          <div className="col-md-2">
-            <img src={sampleImage} alt="Sample" height="150" />
-          </div>
-          <div className="col-md-8 product-detail text">
-            <div> <h4>Šunų ėdalas "Pedigree"</h4>
-            <p>Tinka tiek mažiems, tiek jau paaugusiems šuniukams.</p></div>
-           
-            <div className="col-md-2 product-price">
-            <p>19.99 eur</p>
-            <p>Kiekis:</p>
-            <input type="number" id="count" name="count"
-       min="0" max="100"/>
-
-          </div>
-          </div>
-         
+        <div class="container">
+          <ul class="responsive-table">
+            <li class="table-header">
+              <div class="col col-1">Prekė</div>
+              <div class="col col-2">Pavadinimas</div>
+              <div class="col col-3">Kiekis</div>
+              <div class="col col-4">Kaina</div>
+              <div class="col col-5"></div>
+            </li>
+            <li class="table-row">
+              <div class="col col-1" data-label="Foto">
+                <img src={sampleImage} alt="Sample" height="100" />
+              </div>
+              <div class="col col-2" data-label="Pavadinimas">
+                Šunų ėdalas "Pedigree"
+              </div>
+              <div class="col col-3" data-label="Kiekis">
+                <input
+                  defaultValue={1}
+                  type="number"
+                  id="count"
+                  name="count"
+                  min="0"
+                  max="100"
+                />
+              </div>
+              <div class="col col-4" data-label="Kaina">
+                19.99 eur
+              </div>
+              <div class="col col-5" data-label="delete">
+                <Link to="/salinti">Šalinti</Link>
+              </div>
+            </li>
+          </ul>
         </div>
-        <div>
-          <Link to="/pirkti">Pirkti</Link>
+        <div><br></br>
+          <center>
+            <Link to="/pirkti">Pirkti</Link>
+          </center>
         </div>
       </div>
     );
