@@ -68,6 +68,15 @@ function Navbar() {
             </li>
             <li className='nav-item'>
               <Link
+                to='/uzsakymai'
+                className='nav-links'
+                onClick={closeMobileMenu}
+              >
+                Užsakymai
+              </Link>
+            </li>
+            <li className='nav-item'>
+              <Link
                 to='/rezervacijos'
                 className='nav-links'
                 onClick={closeMobileMenu}
