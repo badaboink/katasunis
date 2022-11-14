@@ -28,7 +28,7 @@ export default function SignUp() {
       </form>
       <br></br>
       <center>
-        <h3>Neturi paskyros?</h3>
+        <h3>Neturite paskyros?</h3>
         <div>   
           <Link to="/registracija">
             Registruotis
