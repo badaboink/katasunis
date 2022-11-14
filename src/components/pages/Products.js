@@ -15,6 +15,7 @@ import React from 'react';
 import '../../App.css';
 import './products.css';
 import ProductList from '../ProductList';
+import { Link } from 'react-router-dom';
 
 function Products() {
   return (
@@ -23,9 +24,11 @@ function Products() {
         <h1>AUGINTINIŲ PREKĖS</h1>
       </header>
       <ProductList/>
-      <a href='./PrekesAdmin'>Kurti naują prekę</a>
-     
-      
+      <center>
+        <div>
+          <Link to="/kurti-preke">Kurti prekę</Link>
+        </div>
+      </center>
     </div>
   );
 }

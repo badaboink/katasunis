@@ -11,6 +11,9 @@ import PrekesAdmin from './components/pages/PrekesAdmin';
 import Basket from './components/pages/Basket';
 import Reservations from './components/pages/Reservations';
 import AddReservation from './components/pages/AddReservation';
+import AddService from './components/pages/AddService';
+import AddProduct from './components/pages/AddProduct';
+import Orders from './components/pages/Orders';
 
 function App() {
   return (
@@ -26,7 +29,10 @@ function App() {
           <Route path='/prekesadmin' component={PrekesAdmin} />
           <Route path='/krepselis' component={Basket} />
           <Route path='/rezervacijos' component={Reservations} />
+          <Route path='/uzsakymai' component={Orders} />
           <Route path='/kurti-rezervacija' component={AddReservation} />
+          <Route path='/kurti-paslauga' component={AddService} />
+          <Route path='/kurti-preke' component={AddProduct} />
         </Switch>
       </Router>
     </>
