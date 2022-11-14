@@ -29,13 +29,20 @@ function Navbar() {
       <nav className='navbar'>
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-            TRVL
+            KATAŠUNIS
             <i class='fas fa-dog' />
           </Link>
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+          <li className='nav-item'>
+              <Link to='/krepselis' 
+              className='nav-links' 
+              onClick={closeMobileMenu}>
+              <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+              </Link>
+            </li>
             <li className='nav-item'>
               <Link to='/' className='nav-links' onClick={closeMobileMenu}>
                 Pagrindinis puslapis
@@ -57,6 +64,15 @@ function Navbar() {
                 onClick={closeMobileMenu}
               >
                 Prekės
+              </Link>
+            </li>
+            <li className='nav-item'>
+              <Link
+                to='/rezervacijos'
+                className='nav-links'
+                onClick={closeMobileMenu}
+              >
+                Rezervacijos
               </Link>
             </li>
             <li>
