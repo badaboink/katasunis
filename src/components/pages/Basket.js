@@ -30,7 +30,9 @@ class Basket extends Component {
           </header>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gridGap: 20 }}>
           <div><ProductRow /></div>
-          <div>x</div>
+          <div>   
+          x
+          </div>
           </div>
 
           <Button>Pirkti</Button>
