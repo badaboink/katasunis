@@ -15,6 +15,8 @@ import '../../App.css';
 import './Basket.css';
 import ProductRow from '../ProductRow';
 import { Button } from '../Button';
+import { Link } from 'react-router-dom';
+import sampleImage from '../../pedigree.jpg';
 
 class Basket extends Component {
   //   constructor(props) {
@@ -28,15 +30,27 @@ class Basket extends Component {
           <header className="header">
           <h1>Prekių krepšelis</h1>
           </header>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gridGap: 20 }}>
-          <div><ProductRow /></div>
-          <div>   
-          x
+          <div className="row product">
+          <Link to='/salinti'>
+            X
+          </Link>
+          <div className="col-md-2">
+            <img src={sampleImage} alt="Sample" height="150" />
           </div>
+          <div className="col-md-8 product-detail">
+            <h4>Šunų ėdalas "Pedigree"</h4>
+            <p>Tinka tiek mažiems, tiek jau paaugusiems šuniukams.</p>
+          </div>
+          <div className="col-md-2 product-price">
+            <p>19.99 eur</p>
+            <p>kiekis:</p>
+            <input type="int"/>
+          </div>
+          </div>
+          
+          <Link to='/pirkti'>Pirkti</Link>
           </div>
 
-          <Button>Pirkti</Button>
-        </div>
       );
     }
   }
