@@ -10,10 +10,11 @@ class ProductList extends Component {
 
   render() {
     return (
-      <div className="container main-content">
-        <ProductRow />
-        <ProductRow />
-        <ProductRow />
+      
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gridGap: 20 }}>
+        <div><ProductRow /></div>
+        <div><ProductRow /></div>
+        <div><ProductRow /></div>
       </div>
     );
   }

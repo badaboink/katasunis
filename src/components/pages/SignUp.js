@@ -29,11 +29,11 @@ export default function SignUp() {
       <br></br>
       <center>
         <h3>Neturi paskyros?</h3>
-        <div className="link-wrapper">   
-          <Link to="/registracija" className="register-link">
+        <div style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>
+        <Link to="/registracija" className="register-link">
             Registruotis
-          </Link> 
-          </div>      
+          </Link>  
+        </div>
       </center>
     </React.Fragment>
   );

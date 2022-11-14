@@ -36,6 +36,13 @@ function Navbar() {
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+          <li className='nav-item'>
+              <Link to='/krepselis' 
+              className='nav-links' 
+              onClick={closeMobileMenu}>
+              <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+              </Link>
+            </li>
             <li className='nav-item'>
               <Link to='/' className='nav-links' onClick={closeMobileMenu}>
                 Pagrindinis puslapis
