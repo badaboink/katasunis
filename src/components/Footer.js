@@ -65,7 +65,7 @@ function Footer() {
           <div class='footer-logo'>
             <Link to='/' className='social-logo'>
               TRVL
-              <i class='fab fa-typo3' />
+              <i class='fas fa-dog' />
             </Link>
           </div>
           <small class='website-rights'>TRVL © 2020</small>
