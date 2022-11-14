@@ -7,30 +7,30 @@ import "../Navbar.css";
 export default function SignUp() {
   return (
     <React.Fragment>
-      <form className="form">
+      <form className="login-form">
         <h2>Prisijungti</h2>
         <br></br>
-        <div className="control">
-          <label className="label" htmlFor="email">
+        <div className="login-control">
+          <label className="login-label" htmlFor="email">
             El. paštas
           </label>
-          <input className="input" type="email" required id="email" />
+          <input className="login-input" type="email" required id="email" />
         </div>
-        <div className="control">
-          <label className="label" htmlFor="password">
+        <div className="login-control">
+          <label className="login-label" htmlFor="password">
             Slaptažodis
           </label>
-          <input className="input" type="password" required id="password" />
+          <input className="login-input" type="password" required id="password" />
         </div>
-        <div className="actions">
-          <button className="button">Prisijungti</button>
+        <div className="login-actions">
+          <button className="login-button">Prisijungti</button>
         </div>
       </form>
       <br></br>
       <center>
         <h3>Neturi paskyros?</h3>
-        <div className="link-wrapper">   
-          <Link to="/registracija" className="register-link">
+        <div>   
+          <Link to="/registracija">
             Registruotis
           </Link> 
           </div>      
