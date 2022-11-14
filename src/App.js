@@ -14,6 +14,7 @@ import AddReservation from './components/pages/AddReservation';
 import AddService from './components/pages/AddService';
 import AddProduct from './components/pages/AddProduct';
 import Orders from './components/pages/Orders';
+import Buy from './components/pages/Buy';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path='/kurti-rezervacija' component={AddReservation} />
           <Route path='/kurti-paslauga' component={AddService} />
           <Route path='/kurti-preke' component={AddProduct} />
+          <Route path='/pirkti' component={Buy} />
         </Switch>
       </Router>
     </>

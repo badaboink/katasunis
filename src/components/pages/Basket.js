@@ -10,30 +10,27 @@
 //   );
 // }
 
-import React, { Component } from 'react';
-import '../../App.css';
-import './Basket.css';
-import ProductRow from '../ProductRow';
-import { Button } from '../Button';
-import { Link } from 'react-router-dom';
-import sampleImage from '../../pedigree.jpg';
+import React, { Component } from "react";
+import "../../App.css";
+import "./Basket.css";
+import ProductRow from "../ProductRow";
+import { Button } from "../Button";
+import { Link } from "react-router-dom";
+import sampleImage from "../../pedigree.jpg";
 
 class Basket extends Component {
   //   constructor(props) {
   //     super(props);
   //   }
-  
-    render() {
-      return (
-        
-        <div className="container main-content">
-          <header className="header">
+
+  render() {
+    return (
+      <div className="container main-content">
+        <header className="header">
           <h1>Prekių krepšelis</h1>
-          </header>
-          <div className="row product">
-          <Link to='/salinti'>
-            X
-          </Link>
+        </header>
+        <div className="row product">
+          <Link to="/salinti">X</Link>
           <div className="col-md-2">
             <img src={sampleImage} alt="Sample" height="150" />
           </div>
@@ -44,15 +41,16 @@ class Basket extends Component {
           <div className="col-md-2 product-price">
             <p>19.99 eur</p>
             <p>kiekis:</p>
-            <input type="int"/>
+            <input type="int" />
           </div>
-          </div>
-          
-          <Link to='/pirkti'>Pirkti</Link>
-          </div>
-
-      );
-    }
+          <div>x</div>
+        </div>
+        <div>
+          <Link to="/pirkti">Pirkti</Link>
+        </div>
+      </div>
+    );
   }
+}
 
 export default Basket;
