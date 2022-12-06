@@ -6,7 +6,7 @@ import './HeroSection.css';
 function HeroSection() {
   return (
     <div className='hero-container'>
-      <video src='/videos/video-1.mp4' autoPlay loop muted />
+      <video src='/videos/dog_running_video.mp4' autoPlay loop muted />
       <h1>KATAŠUNIS</h1>
       <p>Veterinarijos informacinė sistema</p>
     

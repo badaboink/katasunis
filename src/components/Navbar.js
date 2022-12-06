@@ -38,11 +38,6 @@ function Navbar() {
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
          
             <li className='nav-item'>
-              <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                Pagrindinis puslapis
-              </Link>
-            </li>
-            <li className='nav-item'>
               <Link
                 to='/paslaugos'
                 className='nav-links'
