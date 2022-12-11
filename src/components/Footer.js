@@ -17,13 +17,13 @@ function Footer() {
           </div>
           <small class='website-rights'>Katašunis © 2022</small>
           <div class='social-icons'>
-            <Link
-              class='social-icon-link facebook'
-              to='/'
+          <Link
+              class='link to donate pge'
+              to='/paaukoti'
               target='_blank'
-              aria-label='Facebook'
+              aria-label='Donate'
             >
-              <i class='fab fa-facebook-f' />
+              <i class='fas fa-paw' />
             </Link>
             <Link
               class='social-icon-link instagram'
