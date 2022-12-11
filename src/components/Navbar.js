@@ -73,6 +73,15 @@ function Navbar() {
                 Rezervacijos
               </Link>
             </li>
+            <li className='nav-item'>
+              <Link
+                to='/profilis'
+                className='nav-links'
+                onClick={closeMobileMenu}
+              >
+                <i class='fas fa-user-alt' />
+              </Link>
+            </li>
             <li>
               <Link
                 to='/prisijungimas'

@@ -16,6 +16,8 @@ import AddProduct from './components/pages/AddProduct';
 import Orders from './components/pages/Orders';
 import Buy from './components/pages/Buy';
 import ProductInfo from './components/pages/ProductInfo';
+import Profile from './components/pages/Profile';
+import Donate from './components/pages/Donate';
 
 function App() {
   return (
@@ -37,6 +39,8 @@ function App() {
           <Route path='/kurti-preke' component={AddProduct} />
           <Route path='/pirkti' component={Buy} />
           <Route path='/produktas' component={ProductInfo} />
+          <Route path='/profilis' component={Profile} />
+          <Route path='/paaukoti' component={Donate} />
         </Switch>
       </Router>
     </>
