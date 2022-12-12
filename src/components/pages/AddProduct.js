@@ -13,6 +13,7 @@ export default function AddProduct() {
   const [sizeInput, setSizeInput] = useState("");
   const [weightInput, setWeightInput] = useState("");
   const [amountInput, setAmountInput] = useState("");
+  const [colorInput, setColorInput] = useState("");
 
   
 
@@ -119,16 +120,18 @@ export default function AddProduct() {
             onChange={(e) => setTypeInput(e.target.value)}
           >
             <option value="-">-</option>
-            <option value="maistas">Šunų maistas</option>
-            <option value="maistas">Kačių maistas</option>
-            <option value="maistas">Maistas</option>
-            <option value="maistas">Maistas</option>
-            <option value="maistas">Maistas</option>
-            <option value="maistas">Maistas</option>
-            <option value="drabuziai">Drabužiai</option>
+            <option value="sunu_maistas">Šunų maistas</option>
+            <option value="kaciu_maistas">Kačių maistas</option>
+            <option value="pauksciu_maistas">Paukščių maistas</option>
+            <option value="grauziku_maistas">Graužikų maistas</option>
+            <option value="narveliai">Paukščių narveliai</option>
             <option value="vaistai">Vaistai</option>
-            <option value="vaistai">Pavadėliai</option>
+            <option value="vitaminai">Vitaminai</option>
+            <option value="dr_sunims">Drabužiai šunims</option>
+            <option value="dr_katems">Drabužiai katėms</option>
+            <option value="prieziura">Priežiūros priemonės</option>
             <option value="kita">Kita</option>
+            
           </select>
         </div>
         <div className="control">
@@ -161,6 +164,22 @@ export default function AddProduct() {
             value={weightInput}
             onChange={(e) => setWeightInput(e.target.value)}
           />
+        </div>
+        <div className="control">
+          <label className="label" htmlFor="color">
+            Spalva
+          </label>
+          <select
+            className="input"
+            id="color"
+            value={colorInput}
+            onChange={(e) => setColorInput(e.target.value)}
+          >
+            <option value="-">-</option>
+            <option value="balta">Balta</option>
+            <option value="juoda">Juoda</option>
+            <option value="spalvota">Spalvota</option>
+          </select>
         </div>
         <div className="actions">
           <button className="button">Kurti prekę</button>

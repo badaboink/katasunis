@@ -7,30 +7,30 @@ import { useEffect } from "react";
 export default function AddReservation() {
   const [dateInput, setDateInput] = useState("");
   const [timeInput, setTimeInput] = useState("");
-  const [serviceInput, setServiceInput] = useState("");
-  const [services, setservices] = useState([]);
-
+  const [selectedServices, setSelectedServices] = useState([]);
+  const [services, setServices] = useState([]);
 
   useEffect(() => {
     getServices();
-    console.log(services[0].pavadinimas)
-  }, []);
+  }, [services]);
 
   const getServices = () => {
-
-      fetch('http://localhost/katasunis/katasunis_backend/selectRezervacijos.php')
-          .then((response) => response.json())
-          .then((data) => setservices(data));
-    };
+    fetch("http://localhost/katasunis/katasunis_backend/selectPaslaugos.php")
+      .then((response) => response.json())
+      .then((data) => {
+        //console.log(data);
+        setServices(data);
+      });
+  };
 
   const Click = (event) => {
     let state = {
       date: dateInput,
       time: timeInput,
-      service: serviceInput,
+      services: selectedServices,
     };
-    console.log(state);
-    console.log(JSON.stringify(state));
+    //console.log(state);
+    //console.log(JSON.stringify(state));
 
     fetch("http://localhost/katasunis/katasunis_backend/rezervacija.php", {
       // Enter your IP address here
@@ -42,12 +42,17 @@ export default function AddReservation() {
       console.log(response);
     });
     event.preventDefault();
+  };
 
-    console.log(
-      dateInput,
-      timeInput,
-      serviceInput
-    );
+  const handleCheckboxChange = (event) => {
+    const selectedService = event.target.id;
+    if (selectedServices.includes(selectedService)) {
+      setSelectedServices(
+        selectedServices.filter((id) => id !== selectedService)
+      );
+    } else {
+      setSelectedServices([...selectedServices, selectedService]);
+    }
   };
 
   return (
@@ -84,15 +89,16 @@ export default function AddReservation() {
         <label className="label" htmlFor="service">
           Paslaugos
         </label>
-        <input type="checkbox" id="paslauga1" />
-        <label for="paslauga1">Apžiūra</label>
-        <br></br>
-        <input type="checkbox" id="paslauga2" />
-        <label for="paslauga2">Nagų kirpimas</label>
-        <br></br>
-        <input type="checkbox" id="paslauga3" />
-        <label for="paslauga3">Skiepijimas</label>
-        <br></br>
+        {services.map((service) => (
+          <div>
+            <input
+              type="checkbox"
+              id={service.id}
+              onChange={handleCheckboxChange}
+            />
+            {service.pavadinimas}
+          </div>
+        ))}
       </div>
       <div className="actions">
         <button className="button">Kurti rezervaciją</button>

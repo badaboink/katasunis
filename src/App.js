@@ -15,7 +15,7 @@ import AddService from './components/pages/AddService';
 import AddProduct from './components/pages/AddProduct';
 import Orders from './components/pages/Orders';
 import Buy from './components/pages/Buy';
-import ProductInfo from './components/pages/ProductInfo';
+import ProductInfo from './components/pages/productinfotest';
 import Profile from './components/pages/Profile';
 import Donate from './components/pages/Donate';
 import EditProfile from './components/pages/EditProfile';
