@@ -11,6 +11,7 @@ export default function AddProduct() {
   const [priceInput, setPriceInput] = useState("");
   const [typeInput, setTypeInput] = useState("");
   const [sizeInput, setSizeInput] = useState("");
+  const [weightInput, setWeightInput] = useState("");
   const [amountInput, setAmountInput] = useState("");
 
   
@@ -23,6 +24,7 @@ export default function AddProduct() {
       amount: amountInput,
       type: typeInput,
       size: sizeInput,
+      weight: weightInput
     };
     console.log(state);
     console.log(JSON.stringify(state));
@@ -38,6 +40,7 @@ export default function AddProduct() {
     });
     event.preventDefault();
 
+    console.log(titleInput, descriptionInput, priceInput, amountInput, typeInput, sizeInput, weightInput);
     console.log(
       titleInput,
       descriptionInput,
@@ -116,6 +119,11 @@ export default function AddProduct() {
             onChange={(e) => setTypeInput(e.target.value)}
           >
             <option value="-">-</option>
+            <option value="maistas">Šunų maistas</option>
+            <option value="maistas">Kačių maistas</option>
+            <option value="maistas">Maistas</option>
+            <option value="maistas">Maistas</option>
+            <option value="maistas">Maistas</option>
             <option value="maistas">Maistas</option>
             <option value="drabuziai">Drabužiai</option>
             <option value="vaistai">Vaistai</option>
@@ -140,6 +148,19 @@ export default function AddProduct() {
             <option value="4">L</option>
             <option value="5">XL</option>
           </select>
+        </div>
+        <div className="control">
+          <label className="label" htmlFor="weight">
+            Svoris
+          </label>
+          <input
+            className="input"
+            type="number"
+            required
+            id="weight"
+            value={weightInput}
+            onChange={(e) => setWeightInput(e.target.value)}
+          />
         </div>
         <div className="actions">
           <button className="button">Kurti prekę</button>
