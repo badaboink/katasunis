@@ -14,7 +14,7 @@ export default function AddProduct() {
   const [weightInput, setWeightInput] = useState("");
   const [amountInput, setAmountInput] = useState("");
   const [colorInput, setColorInput] = useState("");
-
+  const [photoInput, setPhotoInput] = useState("");
   
 
   const Click = (event) => {
@@ -30,7 +30,7 @@ export default function AddProduct() {
     console.log(state);
     console.log(JSON.stringify(state));
 
-    fetch("http://localhost/katasunis/katasunis_backend/prekes.php", {
+    fetch("http://localhost/katasunis_backend/prekesNew.php", {
       // Enter your IP address here
 
       method: "POST",
@@ -48,7 +48,8 @@ export default function AddProduct() {
       priceInput,
       amountInput,
       typeInput,
-      sizeInput
+      sizeInput,
+      weightInput
     );
   };
 
@@ -181,6 +182,19 @@ export default function AddProduct() {
             <option value="spalvota">Spalvota</option>
           </select>
         </div>
+        <div className="control">
+          <label className="label" htmlFor="amount">
+            Nuotrauka
+          </label>
+          <input
+            className="input"
+            type="file"
+            required
+            id="photo"
+            value={photoInput}
+            onChange={(e) => setPhotoInput(e.target.value)}
+          />
+          </div>
         <div className="actions">
           <button className="button">Kurti prekę</button>
         </div>

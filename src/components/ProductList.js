@@ -8,6 +8,7 @@ class ProductList extends Component {
 //     super(props);
 //   }
 
+//TODO: Kaip padaryt, kad perduotu data i cia ir pagal jos kieki viska sudeliotu?
   render() {
     return (
       
