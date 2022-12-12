@@ -25,7 +25,8 @@ export default function AddProduct() {
       amount: amountInput,
       type: typeInput,
       size: sizeInput,
-      weight: weightInput
+      weight: weightInput,
+      photoInput
     };
     console.log(state);
     console.log(JSON.stringify(state));
@@ -41,7 +42,7 @@ export default function AddProduct() {
     });
     event.preventDefault();
 
-    console.log(titleInput, descriptionInput, priceInput, amountInput, typeInput, sizeInput, weightInput);
+    console.log(titleInput, descriptionInput, priceInput, amountInput, typeInput, sizeInput, weightInput,photoInput);
     console.log(
       titleInput,
       descriptionInput,
@@ -49,7 +50,8 @@ export default function AddProduct() {
       amountInput,
       typeInput,
       sizeInput,
-      weightInput
+      weightInput,
+      photoInput
     );
   };
 
