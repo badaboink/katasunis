@@ -3,7 +3,7 @@ import "../../App.css";
 import "./products.scss";
 import sampleImage from "../../pedigree.jpg";
 import Grid from '@mui/material/Grid';
-//import Item from '@mui/material/Item';
+//import p from '@mui/material/p';
 //import { useLocation } from 'react-router-dom'
 import { useEffect } from "react";
 import { useState} from "react";
@@ -27,9 +27,9 @@ export default function ProductInfo(props) { //pagal indeksa?
  
   //TODO: reikia perduot id i prekesLookOne.php ir is ten gaut viena preke
   //BET dabar CORS policy neveikia, ir galimai kreipsis i php greiciau nei id nuskaitys is url, tai id null del to gales but
-  //let id = params.get("id");
+  let id = params.get("id");
   //loaderiai ir spinneriai 
-  let id=5;
+  //let id=5;
   console.log("id: ",id)
 
 const [product, setProduct] = useState([]);
@@ -57,54 +57,35 @@ const [product, setProduct] = useState([]);
         setProduct(data);
       });
   };
-
+ //TODO:su nuotrauka visur
+ //tikrint ar ne null values ir konstruot string tada
+ 
+let spalva="";
+if(product[5]!=null){
+  spalva = "Spalva: " + product[5];
+}
+let dydis="";
+if(product[6]!=null){
+  dydis = "Dydis: " + product[6];
+}
   return (
     <div className="container">
       <h1>PREKĖS PERŽIŪRA</h1>
-        <h3>{product[2]}</h3>
-    </div>
+      <Grid container spacing={3} justify = "center">
+      <Grid item xs={6}>
+      <p><img src={sampleImage} alt="Sample" height="450"/></p>
+      </Grid>
+      <Grid item xs={6} marginTop >
+      <h3>Pavadinimas: {product[1]}</h3>
+      <p>Aprašymas: {product[4]}</p>
+      <h3>Turime sandėlyje: {product[3]}</h3>
+      <h3>Svoris: {product[7]} kg</h3>
+      <h3>{spalva}</h3>
+      <h3>{dydis} </h3>
+      <h3>Kaina: {product[2]} eur</h3>
+      <button className="button">Į krepšelį</button>
+      </Grid>
+      </Grid>
+      </div>
   );
 }
-
-
-// {product.map((product0, index) => (
-//   <div>
-//     <h1>product0.pavadinimas</h1>
-//   <img src={sampleImage} alt="Sample" height="450"/>
-//   <h3>{product0.pavadinimas}</h3>
-//   <h3>{product0.kaina}</h3>
-//   </div>
-
-// ))}
-
-/* <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-      <Grid item xs={6}>
-      <img src={sampleImage} alt="Sample" height="450" />
-      </Grid>
-       <Grid item xs={6}>
-      <p>2</p>
-      </Grid>
-      <Grid item xs={6}>
-      <p>3</p>
-      </Grid>
-      <Grid item xs={6}>
-      <p>4</p>
-      </Grid>
-    </Grid> */
-      /* <center>
-        <header className="header">
-          <h1>PREKĖS INFORMACIJA</h1>
-        </header>
-        <div className="col-md-2">
-          <img src={sampleImage} alt="Sample" height="150" />
-        </div>
-        <div className="col-md-8 product-detail">
-          <h4>data.pavadinimas</h4>
-          <p>data.aprasas</p>
-          <p>data.kiekis</p>
-          <p>data.svoris</p>
-          <p>data.spalva</p>
-          <p>data.dydis</p>
-        </div>
-        <div className="col-md-2">data.kaina</div>
-      </center> */
