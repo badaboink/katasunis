@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 import { useLocation } from "react-router-dom"
 
+
 export default function ProductInfo(props) { //pagal indeksa?
   
   // const { from } = JSON.parse(this.props.produktas)
@@ -20,10 +21,16 @@ export default function ProductInfo(props) { //pagal indeksa?
 
 //console.log() //from
   //pasiimt id is url
+
   const location = useLocation()
   const params = new URLSearchParams(location.search)
  
-  let id = params.get("id");
+  //TODO: reikia perduot id i prekesLookOne.php ir is ten gaut viena preke
+  //BET dabar CORS policy neveikia, ir galimai kreipsis i php greiciau nei id nuskaitys is url, tai id null del to gales but
+  //let id = params.get("id");
+  //loaderiai ir spinneriai 
+  let id=5;
+  console.log("id: ",id)
 
 const [product, setProduct] = useState([]);
 
@@ -34,7 +41,16 @@ const [product, setProduct] = useState([]);
   
   const getProduct = (id) => {
     //perduot php id?
-    fetch("http://localhost/katasunis_backend/prekesLookOne.php")
+    fetch("http://localhost/katasunis_backend/prekesLookOne.php",{
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        id: id
+      })
+    })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -42,19 +58,26 @@ const [product, setProduct] = useState([]);
       });
   };
 
-
-
   return (
     <div className="container">
-        {product.map((product0, index) => (
-          <div>
-          <img src={sampleImage} alt="Sample" height="450" />
-          <h3>{product0.pavadinimas}</h3>
-          <h3>{product0.kaina}</h3>
-          </div>
+      <h1>PREKĖS PERŽIŪRA</h1>
+        <h3>{product[2]}</h3>
+    </div>
+  );
+}
 
-        ))}
-      {/* <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+
+// {product.map((product0, index) => (
+//   <div>
+//     <h1>product0.pavadinimas</h1>
+//   <img src={sampleImage} alt="Sample" height="450"/>
+//   <h3>{product0.pavadinimas}</h3>
+//   <h3>{product0.kaina}</h3>
+//   </div>
+
+// ))}
+
+/* <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
       <Grid item xs={6}>
       <img src={sampleImage} alt="Sample" height="450" />
       </Grid>
@@ -67,8 +90,8 @@ const [product, setProduct] = useState([]);
       <Grid item xs={6}>
       <p>4</p>
       </Grid>
-    </Grid> */}
-      {/* <center>
+    </Grid> */
+      /* <center>
         <header className="header">
           <h1>PREKĖS INFORMACIJA</h1>
         </header>
@@ -84,10 +107,4 @@ const [product, setProduct] = useState([]);
           <p>data.dydis</p>
         </div>
         <div className="col-md-2">data.kaina</div>
-      </center> */}
-    </div>
-  );
-}
-
-
-
+      </center> */
