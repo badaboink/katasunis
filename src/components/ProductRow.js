@@ -18,6 +18,7 @@ const ProductRow = () => {
       <div className="col-md-2 product-price">
         19.99 eur
       </div>
+      {/* ar yra sandely rodyt */}
       </a>
       
     </div>
