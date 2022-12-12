@@ -3,6 +3,7 @@ import "../../App.css";
 import "./Register.css";
 import "../Navbar.css";
 import { useState } from "react";
+import { useEffect } from "react";
 
 export default function AddProduct() {
   const [titleInput, setTitleInput] = useState("");
@@ -13,8 +14,9 @@ export default function AddProduct() {
   const [weightInput, setWeightInput] = useState("");
   const [amountInput, setAmountInput] = useState("");
 
+  
+
   const Click = (event) => {
-    
     let state = {
       title: titleInput,
       description: descriptionInput,
@@ -33,13 +35,20 @@ export default function AddProduct() {
       method: "POST",
       mode: "cors",
       body: JSON.stringify(state), // body data type must match "Content-Type" header
-    })
-      .then((response) => {
-        console.log(response);
-      });
+    }).then((response) => {
+      console.log(response);
+    });
     event.preventDefault();
 
     console.log(titleInput, descriptionInput, priceInput, amountInput, typeInput, sizeInput, weightInput);
+    console.log(
+      titleInput,
+      descriptionInput,
+      priceInput,
+      amountInput,
+      typeInput,
+      sizeInput
+    );
   };
 
   return (

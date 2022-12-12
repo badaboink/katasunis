@@ -4,6 +4,33 @@ import "./Register.css";
 import "../Navbar.css";
 
 export default function Buy() {
+
+  function Click(){
+    var jsonData = {
+      "users": [
+          {
+              "name": "alan", 
+              "age": 23,
+              "username": "aturing"
+          },
+          {
+              "name": "john", 
+              "age": 29,
+              "username": "__john__"
+          }
+      ]
+    }
+    fetch('http://localhost/prekes.php', {  // Enter your IP address here
+
+    method: 'POST', 
+    mode: 'cors', 
+    body: JSON.stringify(jsonData) // body data type must match "Content-Type" header
+
+  }).then(response=>response.json())
+  .then(data=>{ console.log(data); })
+  }
+
+
   return (
     <React.Fragment>
       <form className="form">
