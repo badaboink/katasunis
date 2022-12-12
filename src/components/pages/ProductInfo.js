@@ -15,6 +15,7 @@ import "../../App.css";
 import "./products.css";
 import sampleImage from "../../pedigree.jpg";
 
+
 function ProductInfo() {
   return (
     <div className="container">
