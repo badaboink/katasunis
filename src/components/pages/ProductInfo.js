@@ -41,7 +41,7 @@ const [product, setProduct] = useState([]);
   
   const getProduct = (id) => {
     //perduot php id?
-    fetch("http://localhost/katasunis_backend/prekesLookOne.php",{
+    fetch("http://localhost/katasunis/katasunis_backend/prekesLookOne.php",{
       method: 'POST',
       headers: {
         'Accept': 'application/json',

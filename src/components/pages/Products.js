@@ -22,7 +22,7 @@ function Products() {
 
   
   const getProducts = () => {
-    fetch("http://localhost/katasunis_backend/prekesLookAll.php")
+    fetch("http://localhost/katasunis/katasunis_backend/prekesLookAll.php")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -61,6 +61,7 @@ function Products() {
           <CardActions>
             
         <Button size="small"><Link to={'/produktas?id='+ product.id}> PERŽIŪRĖTI  </Link></Button>
+        <Button size="small"><Link to={'/produktas?id='+ product.id}> ŠALINTI  </Link></Button>
       </CardActions>
         </Card>
         
