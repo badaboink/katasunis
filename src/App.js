@@ -13,6 +13,7 @@ import Reservations from './components/pages/Reservations';
 import AddReservation from './components/pages/AddReservation';
 import AddService from './components/pages/AddService';
 import AddProduct from './components/pages/AddProduct';
+import EditProduct from './components/pages/EditProduct';
 import Orders from './components/pages/Orders';
 import Buy from './components/pages/Buy';
 import ProductInfo from './components/pages/ProductInfo';
@@ -39,6 +40,7 @@ function App() {
           <Route path='/kurti-rezervacija' component={AddReservation} />
           <Route path='/kurti-paslauga' component={AddService} />
           <Route path='/kurti-preke' component={AddProduct} />
+          <Route path='/redaguoti-preke' component={EditProduct} />
           <Route path='/pirkti' component={Buy} />
           <Route path='/produktas' component={ProductInfo} />
           <Route path='/rezervacija' component={ReservationInfo} />
