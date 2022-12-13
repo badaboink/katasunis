@@ -14,22 +14,11 @@ import { useLocation } from "react-router-dom"
 
 
 export default function ProductInfo(props) { //pagal indeksa?
-  
-  // const { from } = JSON.parse(this.props.produktas)
-
-    // this.props.state
-
-//console.log() //from
-  //pasiimt id is url
 
   const location = useLocation()
   const params = new URLSearchParams(location.search)
- 
-  //TODO: reikia perduot id i prekesLookOne.php ir is ten gaut viena preke
-  //BET dabar CORS policy neveikia, ir galimai kreipsis i php greiciau nei id nuskaitys is url, tai id null del to gales but
-  //let id = params.get("id");
-  //loaderiai ir spinneriai 
-  let id=5;
+  //let id=5;
+  let id = params.get("id");
   console.log("id: ",id)
 
 const [product, setProduct] = useState([]);
@@ -41,7 +30,7 @@ const [product, setProduct] = useState([]);
   
   const getProduct = (id) => {
     //perduot php id?
-    fetch("http://localhost/katasunis_backend/prekesLookOne.php",{
+    fetch("http://localhost/katasunis/katasunis_backend/prekesLookOne.php",{
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -61,7 +50,10 @@ const [product, setProduct] = useState([]);
   return (
     <div className="container">
       <h1>PREKĖS PERŽIŪRA</h1>
-        <h3>{product[2]}</h3>
+        <h3>{product[0]}</h3>
+        <p>{product[1]}</p>
+        <p>{product[2]}</p>
+        <img src={sampleImage} alt=":("></img>
     </div>
   );
 }

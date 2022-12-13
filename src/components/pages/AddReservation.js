@@ -12,7 +12,8 @@ export default function AddReservation() {
 
   useEffect(() => {
     getServices();
-  }, [services]);
+    console.log();
+  }, []);
 
   const getServices = () => {
     fetch("http://localhost/katasunis/katasunis_backend/selectPaslaugos.php")

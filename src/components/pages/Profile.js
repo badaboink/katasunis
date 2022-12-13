@@ -14,7 +14,7 @@ export default function ViewProfiles()
     const history = useHistory();
     useEffect(() => {
       getUsers();
-    }, []);
+    }, [users]);
     const getUsers = () => {
       fetch('http://localhost/katasunis/katasunis_backend/perziureti_naudotojus.php')
           .then((response) => response.json())
@@ -40,6 +40,16 @@ export default function ViewProfiles()
     };
     return (
       <ul class="responsive-table">
+        <li>
+        <div class="col col-1">Vardas</div>
+              <div class="col col-2">Pavarde</div>
+              <div class="col col-3">Pastas</div>
+              <div class="col col-4">Lygis</div>
+              <div class="col col-4">Lytis</div>
+              <div class="col col-4">Tel nr.</div>
+              <div class="col col-4"></div>
+
+        </li>
            {
             users.map((user) => (
               

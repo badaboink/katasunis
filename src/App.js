@@ -19,6 +19,7 @@ import ProductInfo from './components/pages/ProductInfo';
 import Profile from './components/pages/Profile';
 import Donate from './components/pages/Donate';
 import EditProfile from './components/pages/EditProfile';
+import ReservationInfo from './components/pages/ReservationInfo';
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route path='/kurti-preke' component={AddProduct} />
           <Route path='/pirkti' component={Buy} />
           <Route path='/produktas' component={ProductInfo} />
+          <Route path='/rezervacija' component={ReservationInfo} />
           <Route path='/profilis' component={Profile} />
           <Route path='/Redaguoti-naudotoja' component={EditProfile} />
           <Route path='/paaukoti' component={Donate} />
