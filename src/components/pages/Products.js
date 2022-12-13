@@ -30,8 +30,6 @@ function Products() {
       });
   };
 
-
-
   return (
     <div className="container">
 
@@ -63,6 +61,7 @@ function Products() {
           <CardActions>
             
         <Button size="small"><Link to={'/produktas?id='+ product.id}> PERŽIŪRĖTI  </Link></Button>
+        <Button size="small"><Link to={'/produktas?id='+ product.id}> ŠALINTI  </Link></Button>
       </CardActions>
         </Card>
         
