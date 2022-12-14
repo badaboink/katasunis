@@ -5,9 +5,33 @@ import "../Navbar.css";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useAlert } from 'react-alert'
-import ProductInfo from "./ProductInfo";
+import { useLocation } from "react-router-dom"
 
 export default function AddProduct() {
+      //const alert = useAlert()
+      const [product, setProduct] = useState([]);
+      const getProduct = (id) => {
+        //perduot php id?
+        fetch("http://localhost/katasunis/katasunis_backend/prekesLookOne.php",{
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            id: id
+          })
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            setProduct(data);
+          });
+      };     
+
+      useEffect(() => {
+        getProduct(id);
+      }, []);
+
   const [titleInput, setTitleInput] = useState("");
   const [descriptionInput, setDescriptionInput] = useState("");
   const [priceInput, setPriceInput] = useState("");
@@ -17,13 +41,24 @@ export default function AddProduct() {
   const [amountInput, setAmountInput] = useState("");
   const [colorInput, setColorInput] = useState("");
   const [photoInput, setPhotoInput] = useState("");
-  
-  //const alert = useAlert()
 
+  const location = useLocation()
+  const params = new URLSearchParams(location.search)
+
+  //let id=5;
+  let id = params.get("id");
+  console.log("id: ",id)
 
   const Click = (event) => {
+     //TODO: visus patikrint ar pasikeite reiksme ar ne
+     
+    let titleInput0="";
+    if(titleInput == "")  titleInput0 =product.pavadinimas;
+    else titleInput0=titleInput;
+   
     let state = {
-      title: titleInput,
+      
+      title: titleInput0,
       description: descriptionInput,
       price: priceInput,
       amount: amountInput,
@@ -33,16 +68,17 @@ export default function AddProduct() {
       color: colorInput,
       photo: photoInput
     };
-    console.log(state);
+
+    console.log("state: " + state);
     console.log(JSON.stringify(state));
 
-    fetch("http://localhost/katasunis/katasunis_backend/prekesNew.php", {
+    fetch("http://localhost/katasunis/katasunis_backend/prekesEdit.php", {
       // Enter your IP address here
       method: "POST",
       mode: "cors",
       body: JSON.stringify(state), // body data type must match "Content-Type" header
     }).then((response) => {
-      console.log(response);
+      console.log("response: "+response);
     });
     event.preventDefault();
 
@@ -62,11 +98,13 @@ export default function AddProduct() {
     //let success = "Prekė įrašyta sėkminagi";
     console.log("jau po visko")
   };
-
+   
   return (
-    <React.Fragment>
-      <form className="form" onSubmit={Click}>
-        <h2>Prekės kūrimas</h2>
+    // onSubmit={Click}
+    <form className="form" onSubmit={Click}> 
+      {
+          <React.Fragment>
+            <h2>Prekės redagavimas</h2>
         <br></br>
         <div className="control">
           <label className="label" htmlFor="name">
@@ -77,7 +115,7 @@ export default function AddProduct() {
             type="text"
             required
             id="name"
-            value={titleInput}
+            defaultValue={product.pavadinimas}
             onChange={(e) => setTitleInput(e.target.value)}
           />
         </div>
@@ -90,7 +128,7 @@ export default function AddProduct() {
             type="textarea"
             required
             id="description"
-            value={descriptionInput}
+            defaultValue={product.aprasas}
             onChange={(e) => setDescriptionInput(e.target.value)}
           />
         </div>
@@ -103,7 +141,7 @@ export default function AddProduct() {
             type="number"
             required
             id="price"
-            value={priceInput}
+            defaultValue={product.kaina}
             onChange={(e) => setPriceInput(e.target.value)}
           />
         </div>
@@ -116,7 +154,7 @@ export default function AddProduct() {
             type="number"
             required
             id="amount"
-            value={amountInput}
+            defaultValue={product.kiekis}
             onChange={(e) => setAmountInput(e.target.value)}
           />
         </div>
@@ -127,7 +165,7 @@ export default function AddProduct() {
           <select
             className="input"
             id="type"
-            value={typeInput}
+            defaultValue={product.pavadinimas} //nerodys
             onChange={(e) => setTypeInput(e.target.value)}
           >
             <option value="-">-</option>
@@ -154,7 +192,7 @@ export default function AddProduct() {
             type="number"
             required
             id="weight"
-            value={weightInput}
+            defaultValue={product.svoris}
             onChange={(e) => setWeightInput(e.target.value)}
           />
         </div>
@@ -165,7 +203,7 @@ export default function AddProduct() {
           <select
             className="input"
             id="size"
-            value={sizeInput}
+            defaultValue={sizeInput}
             onChange={(e) => setSizeInput(e.target.value)}
           >
             <option value="-">-</option>
@@ -184,7 +222,7 @@ export default function AddProduct() {
           <select
             className="input"
             id="color"
-            value={colorInput}
+            defaultValue={product.spalva}
             onChange={(e) => setColorInput(e.target.value)}
           >
             <option value="-">-</option>
@@ -202,20 +240,68 @@ export default function AddProduct() {
             type="file"
             required
             id="photo"
-            value={photoInput}
+            defaultValue={photoInput} //nerodys
             onChange={(e) => setPhotoInput(e.target.value)}
           />
           </div>
         <div className="actions">
         <button className="button" >
-      Kurti prekę</button>
+            Išsaugoti pakeitimus</button>
         </div>
-      </form>
-      <br></br>
-    </React.Fragment>
+          </React.Fragment>
+    }
+    </form>
   );
 }
+
+// import React, { useState, useEffect } from "react";
+
+// function EditForm({ id }) {
+//   const [data, setData] = useState({});
+
+//   useEffect(() => {
+//     // fetch the data from the database using the provided ID
+//     fetch(`http://localhost/api/data/${id}`)
+//       .then((response) => response.json())
+//       .then((data) => setData(data));
+//   }, [id]);
+
+//   const handleChange = (event) => {
+//     // update the corresponding field in the state
+//     setData({
+//       ...data,
+//       [event.target.name]: event.target.value,
+//     });
+//   };
+
+//   const handleSubmit = (event) => {
+//     // save the updated data to the database
+//     event.preventDefault();
+//     fetch(`http://localhost/api/data/${id}`, {
+//       method: "PUT",
+//       body: JSON.stringify(data),
+//     });
+//   };
+
+//   return (
+//     <form onSubmit={handleSubmit}>
+    //   <label htmlFor="name
+
+//TODO: reikia kad leistu redaguot jau paimtus duomenis
 
 // //onClick={() => {
 //   alert.show('Oh look, an alert!')
 // }}
+
+// Retrieve the data from the database and store it in a state variable.
+// Use the useEffect hook to fetch the data from the database when the component is mounted.
+// Use the setState function to update the state with the data from the database.
+// Use the data from the state to populate the form fields.
+// When the form is submitted, update the data in the database using a backend API.
+
+// To edit data from a database in a React form, you can use a combination of a controlled form and the useEffect hook to fetch 
+// the data from the database when the component mounts.import React, { useState, useEffect } from "react";
+// A controlled form is a form where the values of the form elements are controlled by React state. 
+// In the case of editing data from a database, the initial values of the form elements can be set to the data fetched from the database.
+// Any changes made to the form elements will update the corresponding state, 
+// which can then be used to update the database when the form is submitted.

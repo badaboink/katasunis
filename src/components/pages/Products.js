@@ -18,18 +18,39 @@ function Products() {
 
   useEffect(() => {
     getProducts();
-  }, []);
+  }, [products]);
 
   
   const getProducts = () => {
     fetch("http://localhost/katasunis/katasunis_backend/prekesLookAll.php")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setProducts(data);
       });
   };
+  const DeleteProduct = (event, id) => {
 
+    let state = {
+      id: id,
+    };
+
+      fetch(`http://localhost/katasunis/katasunis_backend/prekesDelete.php`, {
+        method: "DELETE",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(state)
+      }).then((response) => {
+        console.log(response);
+        //window.location.reload();
+      });
+    
+    event.preventDefault();
+
+    console.log("trinama: "+id);
+    
+  };
   return (
     <div className="container">
 
@@ -37,7 +58,15 @@ function Products() {
     <header className="header">
       <h1>AUGINTINIŲ PREKĖS</h1>
     </header>
+
+    <center>
+    <div>
+      <Link to='/kurti-preke'> Kurti prekę</Link>
+    </div>
+    </center>
+    <br></br>
     <div className="grid-container">
+      
     {products.map((product, index) => (
       
        
@@ -61,17 +90,15 @@ function Products() {
           <CardActions>
             
         <Button size="small"><Link to={'/produktas?id='+ product.id}> PERŽIŪRĖTI  </Link></Button>
-        <Button size="small"><Link to={'/produktas?id='+ product.id}> ŠALINTI  </Link></Button>
+        <Button size="small"><Link to={'/redaguoti-preke?id='+ product.id}> REDAGUOTI  </Link></Button>
+        <Button size="small" onClick={(event) => DeleteProduct(event, product.id)}>ŠALINTI</Button>
+        
       </CardActions>
         </Card>
         
     ))}
     </div>
-    <center>
-    <div>
-      <Link to='/kurti-preke'> Kurti prekę</Link>
-    </div>
-    </center>
+   
     </div>
   );
 }
