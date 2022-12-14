@@ -71,6 +71,7 @@ export default function Reservations() {
                 <div class="col col-4">Paslaugos</div>
                 <div class="col col-5"></div>
                 <div class="col col-6"></div>
+                <div class="col col-7"></div>
               </li>
               {reservations.map((reservation, index) => (
                   <li class="table-row" key={index}>
@@ -91,6 +92,9 @@ export default function Reservations() {
                     </div>
                     <div class="col col-6" data-label="Perziureti">
                       <Button size="small"><Link to={'/rezervacija?id='+ reservation.id}>PERŽIŪRĖTI</Link></Button>
+                    </div>
+                    <div class="col col-7" data-label="Perziureti">
+                      <Button size="small"><Link to={'/redaguoti-rezervacija?id='+ reservation.id}>REDAGUOTI</Link></Button>
                     </div>
                   </li>
                       ))}
