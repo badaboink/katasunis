@@ -56,7 +56,7 @@ export default function AddProduct() {
     setAmountInput("");
     setColorInput("");
     setPhotoInput("");
-
+     
     //sekmingas pranesimas:
     //setAlert(alert.show('Prekė įrašyta sėkmingai!'));
     //let success = "Prekė įrašyta sėkminagi";
