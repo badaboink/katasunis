@@ -58,6 +58,7 @@ const [product, setProduct] = useState([]);
           <div>
           <h3>{product.data}</h3>
           <h3>{product.laikas}</h3>
+          <h3>{product.paslaugos}</h3>
           </div>   
       
     </div>
