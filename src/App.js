@@ -21,7 +21,7 @@ import Profile from './components/pages/Profile';
 import Donate from './components/pages/Donate';
 import EditProfile from './components/pages/EditProfile';
 import ReservationInfo from './components/pages/ReservationInfo';
-import UpdateReservation from './components/pages/UpdateRegistration';
+import UpdateReservation from './components/pages/UpdateReservation';
 
 function App() {
   return (
