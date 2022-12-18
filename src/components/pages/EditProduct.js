@@ -55,18 +55,42 @@ export default function AddProduct() {
     let titleInput0="";
     if(titleInput == "")  titleInput0 =product.pavadinimas;
     else titleInput0=titleInput;
+    let descriptionInput0="";
+    if(descriptionInput == "")  descriptionInput0=product.aprasas;
+    else descriptionInput0=descriptionInput;
+    let priceInput0="";
+    if(priceInput == "")  priceInput0 =product.kaina;
+    else priceInput0=priceInput;
+    let amountInput0="";
+    if(amountInput == "")  amountInput0 =product.kiekis;
+    else amountInput0=amountInput;
+    let typeInput0="";
+    if(typeInput == "")  typeInput0 =product.tipas;
+    else typeInput0=typeInput;
+    let sizeInput0="";
+    if(sizeInput == "")  sizeInput0 =product.dydis;
+    else sizeInput0=sizeInput;
+    let weightInput0="";
+    if(weightInput == "")  weightInput0 =product.svoris;
+    else weightInput0=weightInput;
+    let colorInput0="";
+    if(colorInput == "")  colorInput0 =product.spalva;
+    else colorInput0=colorInput;
+    let photoInput0="";
+    if(photoInput == "")  photoInput0 =product.photo;
+    else photoInput0=photoInput;
    
     let state = {
       
       title: titleInput0,
-      description: descriptionInput,
-      price: priceInput,
-      amount: amountInput,
-      type: typeInput,
-      size: sizeInput,
-      weight: weightInput,
-      color: colorInput,
-      photo: photoInput
+      description: descriptionInput0,
+      price: priceInput0,
+      amount: amountInput0,
+      type: typeInput0,
+      size: sizeInput0,
+      weight: weightInput0,
+      color: colorInput0,
+      photo: photoInput0
     };
 
     console.log("state: " + state);
