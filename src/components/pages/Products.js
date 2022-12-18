@@ -12,9 +12,12 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import { Modal } from "../ModalPrekes";
 function Products() {
 
   const [products, setProducts] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [prodId, setProductId] = useState();
 
   useEffect(() => {
     getProducts();
@@ -28,10 +31,10 @@ function Products() {
         setProducts(data);
       });
   };
-  const DeleteProduct = (event, id) => {
+  const DeleteProduct = () => { //event, id
 
     let state = {
-      id: id,
+      id: prodId,
     };
 
       fetch(`http://localhost/katasunis/katasunis_backend/prekesDelete.php`, {
@@ -43,17 +46,32 @@ function Products() {
         body: JSON.stringify(state)
       }).then((response) => {
         console.log(response);
+        hideModalHandler();
         //window.location.reload();
       });
     
-    event.preventDefault();
+    //event.preventDefault();
 
-    console.log("trinama: "+id);
-    
+    console.log("trinama: "+prodId);
   };
-  return (
-    <div className="container">
 
+  const showModalHandler = (prodId) => {
+    setShowModal(true);
+    setProductId(prodId);
+  };
+
+  const hideModalHandler = () => {
+    setShowModal(false);
+  };
+
+  return (
+    
+    <div className="container">
+  <Modal
+        show={showModal}
+        hide={hideModalHandler}
+        onRemoveProduct={DeleteProduct}
+      ></Modal>
 
     <header className="header">
       <h1>AUGINTINIŲ PREKĖS</h1>
@@ -91,7 +109,11 @@ function Products() {
             
         <Button size="small"><Link to={'/produktas?id='+ product.id}> PERŽIŪRĖTI  </Link></Button>
         <Button size="small"><Link to={'/redaguoti-preke?id='+ product.id}> REDAGUOTI  </Link></Button>
-        <Button size="small" onClick={(event) => DeleteProduct(event, product.id)}>ŠALINTI</Button>
+        <Button size="small" 
+         onClick={() =>
+          showModalHandler(product.id)  //onClick={(event) => DeleteProduct(event, product.id)}
+        }
+        >ŠALINTI</Button>
         
       </CardActions>
         </Card>

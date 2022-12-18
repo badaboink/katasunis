@@ -22,6 +22,7 @@ import Donate from './components/pages/Donate';
 import EditProfile from './components/pages/EditProfile';
 import ReservationInfo from './components/pages/ReservationInfo';
 import UpdateReservation from './components/pages/UpdateReservation';
+import filee from './components/pages/file';
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
           <Route path='/profilis' component={Profile} />
           <Route path='/Redaguoti-naudotoja' component={EditProfile} />
           <Route path='/paaukoti' component={Donate} />
+          <Route path='/file' component={filee} />
         </Switch>
       </Router>
     </>

@@ -10,8 +10,18 @@ import { useLocation } from "react-router-dom"
 export default function AddProduct() {
       //const alert = useAlert()
       const [product, setProduct] = useState([]);
+      
+      const [titleInput, setTitleInput] = useState("");
+      const [descriptionInput, setDescriptionInput] = useState("");
+      const [priceInput, setPriceInput] = useState("");
+      const [typeInput, setTypeInput] = useState("");
+      const [sizeInput, setSizeInput] = useState("");
+      const [weightInput, setWeightInput] = useState("");
+      const [amountInput, setAmountInput] = useState("");
+      const [colorInput, setColorInput] = useState("");
+      const [photoInput, setPhotoInput] = useState("");
+
       const getProduct = (id) => {
-        //perduot php id?
         fetch("http://localhost/katasunis/katasunis_backend/prekesLookOne.php",{
           method: 'POST',
           headers: {
@@ -25,6 +35,15 @@ export default function AddProduct() {
           .then((response) => response.json())
           .then((data) => {
             setProduct(data);
+            setTitleInput(data.pavadinimas);
+            setDescriptionInput(data.aprasas);
+            setPriceInput(data.kaina);
+            setTypeInput("Vaistai"); //kazkaip kitaip arba neparodys
+            setSizeInput(data.dydis);
+            setWeightInput(data.svoris);
+            setAmountInput(data.kiekis);
+            setColorInput(data.spalva);
+            //del foto dar nzn
           });
       };     
 
@@ -32,65 +51,26 @@ export default function AddProduct() {
         getProduct(id);
       }, []);
 
-  const [titleInput, setTitleInput] = useState("");
-  const [descriptionInput, setDescriptionInput] = useState("");
-  const [priceInput, setPriceInput] = useState("");
-  const [typeInput, setTypeInput] = useState("");
-  const [sizeInput, setSizeInput] = useState("");
-  const [weightInput, setWeightInput] = useState("");
-  const [amountInput, setAmountInput] = useState("");
-  const [colorInput, setColorInput] = useState("");
-  const [photoInput, setPhotoInput] = useState("");
 
   const location = useLocation()
   const params = new URLSearchParams(location.search)
 
-  //let id=5;
   let id = params.get("id");
   console.log("id: ",id)
 
   const Click = (event) => {
-     //TODO: visus patikrint ar pasikeite reiksme ar ne
-     
-    let titleInput0="";
-    if(titleInput == "")  titleInput0 =product.pavadinimas;
-    else titleInput0=titleInput;
-    let descriptionInput0="";
-    if(descriptionInput == "")  descriptionInput0=product.aprasas;
-    else descriptionInput0=descriptionInput;
-    let priceInput0="";
-    if(priceInput == "")  priceInput0 =product.kaina;
-    else priceInput0=priceInput;
-    let amountInput0="";
-    if(amountInput == "")  amountInput0 =product.kiekis;
-    else amountInput0=amountInput;
-    let typeInput0="";
-    if(typeInput == "")  typeInput0 =product.tipas;
-    else typeInput0=typeInput;
-    let sizeInput0="";
-    if(sizeInput == "")  sizeInput0 =product.dydis;
-    else sizeInput0=sizeInput;
-    let weightInput0="";
-    if(weightInput == "")  weightInput0 =product.svoris;
-    else weightInput0=weightInput;
-    let colorInput0="";
-    if(colorInput == "")  colorInput0 =product.spalva;
-    else colorInput0=colorInput;
-    let photoInput0="";
-    if(photoInput == "")  photoInput0 =product.photo;
-    else photoInput0=photoInput;
-   
+
     let state = {
-      
-      title: titleInput0,
-      description: descriptionInput0,
-      price: priceInput0,
-      amount: amountInput0,
-      type: typeInput0,
-      size: sizeInput0,
-      weight: weightInput0,
-      color: colorInput0,
-      photo: photoInput0
+      id: id,
+      title: titleInput,
+      description: descriptionInput,
+      price: priceInput,
+      amount: amountInput,
+      type: typeInput,
+      size: sizeInput,
+      weight: weightInput,
+      color: colorInput,
+      photo: photoInput
     };
 
     console.log("state: " + state);
@@ -102,20 +82,20 @@ export default function AddProduct() {
       mode: "cors",
       body: JSON.stringify(state), // body data type must match "Content-Type" header
     }).then((response) => {
-      console.log("response: "+response);
+      console.log("response: "+response.status);
     });
     event.preventDefault();
 
     console.log(titleInput, descriptionInput, priceInput, amountInput, typeInput, sizeInput, weightInput,photoInput);
-    setTitleInput("");
-    setDescriptionInput("");
-    setPriceInput("");
-    setTypeInput("");
-    setSizeInput("");
-    setWeightInput("");
-    setAmountInput("");
-    setColorInput("");
-    setPhotoInput("");
+    // setTitleInput("");
+    // setDescriptionInput("");
+    // setPriceInput("");
+    // setTypeInput("");
+    // setSizeInput("");
+    // setWeightInput("");
+    // setAmountInput("");
+    // setColorInput("");
+    // setPhotoInput("");
 
     //sekmingas pranesimas:
     //setAlert(alert.show('Prekė įrašyta sėkmingai!'));
@@ -189,6 +169,7 @@ export default function AddProduct() {
           <select
             className="input"
             id="type"
+            required
             defaultValue={product.pavadinimas} //nerodys
             onChange={(e) => setTypeInput(e.target.value)}
           >
@@ -278,6 +259,36 @@ export default function AddProduct() {
   );
 }
 
+     //TODO: visus patikrint ar pasikeite reiksme ar ne
+     
+    // let titleInput0="";
+    // if(titleInput == "")  titleInput0 =product.pavadinimas;
+    // else titleInput0=titleInput;
+    // let descriptionInput0="";
+    // if(descriptionInput == "")  descriptionInput0=product.aprasas;
+    // else descriptionInput0=descriptionInput;
+    // let priceInput0="";
+    // if(priceInput == "")  priceInput0 =product.kaina;
+    // else priceInput0=priceInput;
+    // let amountInput0="";
+    // if(amountInput == "")  amountInput0 =product.kiekis;
+    // else amountInput0=amountInput;
+    // let typeInput0="";
+    // if(typeInput == "")  typeInput0 =product.tipas;
+    // else typeInput0=typeInput;
+    // let sizeInput0="";
+    // if(sizeInput == "")  sizeInput0 =product.dydis;
+    // else sizeInput0=sizeInput;
+    // let weightInput0="";
+    // if(weightInput == "")  weightInput0 =product.svoris;
+    // else weightInput0=weightInput;
+    // let colorInput0="";
+    // if(colorInput == "")  colorInput0 =product.spalva;
+    // else colorInput0=colorInput;
+    // let photoInput0="";
+    // if(photoInput == "")  photoInput0 =product.photo;
+    // else photoInput0=photoInput;
+   
 // import React, { useState, useEffect } from "react";
 
 // function EditForm({ id }) {

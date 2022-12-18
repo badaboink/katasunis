@@ -197,14 +197,21 @@ export default function AddProduct() {
           <label className="label" htmlFor="amount">
             Nuotrauka
           </label>
-          <input
+          {/* <input
             className="input"
             type="file"
             required
             id="photo"
             value={photoInput}
             onChange={(e) => setPhotoInput(e.target.value)}
-          />
+          /> */}
+           <div>
+                <input type="file" onChange={this.onFileChange} required />
+                <button onClick={this.onFileUpload}>
+                  Upload!
+                </button>
+            </div>
+          {this.fileData()}
           </div>
         <div className="actions">
         <button className="button" >
@@ -219,3 +226,4 @@ export default function AddProduct() {
 // //onClick={() => {
 //   alert.show('Oh look, an alert!')
 // }}
+

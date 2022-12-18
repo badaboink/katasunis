@@ -65,7 +65,7 @@ if(product[6]!=null){
       <h1>PREKĖS PERŽIŪRA</h1>
       <Grid container spacing={3} justify = "center">
       <Grid item xs={6}>
-      <p><img src={sampleImage} alt="Sample" height="450"/></p>
+      <p><img src="https://happydog_en_sb.cstatic.io/600x600/f/69110/600x600/83b4bf51ab/hd-desktop-stage-produkt-young_en.png" alt="Sample" height="450"/></p>
       </Grid>
       <Grid item xs={6} marginTop >
       <h3>Pavadinimas: {product[1]}</h3>
