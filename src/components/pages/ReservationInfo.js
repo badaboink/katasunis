@@ -56,6 +56,7 @@ const [product, setProduct] = useState([]);
   return (
     <div className="container">
           <div>
+          <h3>{product.vardas + " " + product.pavarde}</h3>
           <h3>{product.data}</h3>
           <h3>{product.laikas}</h3>
           <h3>{product.paslaugos}</h3>

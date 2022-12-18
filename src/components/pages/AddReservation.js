@@ -7,13 +7,24 @@ import { useEffect } from "react";
 export default function AddReservation() {
   const [dateInput, setDateInput] = useState("");
   const [timeInput, setTimeInput] = useState("");
+  const [clientInput, setClientInput] = useState("");
   const [selectedServices, setSelectedServices] = useState([]);
   const [services, setServices] = useState([]);
+  const [clients, setClients] = useState([]);
 
   useEffect(() => {
     getServices();
-    console.log();
+    getClients();
   }, []);
+
+  const getClients = () => {
+    fetch("http://localhost/katasunis/katasunis_backend/selectKlientai.php")
+      .then((response) => response.json())
+      .then((data) => {
+        //console.log(data);
+        setClients(data);
+      });
+  };
 
   const getServices = () => {
     fetch("http://localhost/katasunis/katasunis_backend/selectPaslaugos.php")
@@ -28,6 +39,7 @@ export default function AddReservation() {
     let state = {
       date: dateInput,
       time: timeInput,
+      client: clientInput,
       services: selectedServices,
     };
     //console.log(state);
@@ -43,6 +55,8 @@ export default function AddReservation() {
       console.log(response);
     });
     event.preventDefault();
+
+    console.log(selectedServices);
   };
 
   const handleCheckboxChange = (event) => {
@@ -60,6 +74,24 @@ export default function AddReservation() {
     <form className="form" onSubmit={Click}>
       <h2>Rezervacijos kūrimas</h2>
       <br></br>
+      <div className="control">
+        <label className="label" htmlFor="clients">
+          Klientas
+        </label>
+        <select
+          id="dropdown"
+          className="input"
+          value={clientInput}
+          onChange={(e) => setClientInput(e.target.value)}
+        >
+          <option value="-">-</option>
+          {clients.map((client) => (
+            <option key={client.id} value={client.id}>
+              {client.vardas + " " + client.pavarde}
+            </option>
+          ))}
+        </select>
+      </div>
       <div className="control">
         <label className="label" htmlFor="date">
           Data
@@ -91,13 +123,13 @@ export default function AddReservation() {
           Paslaugos
         </label>
         {services.map((service) => (
-          <div>
+          <div key={service.id}>
             <input
               type="checkbox"
               id={service.id}
               onChange={handleCheckboxChange}
             />
-            {service.pavadinimas}
+            <label htmlFor={service.id}>{service.pavadinimas}</label>
           </div>
         ))}
       </div>
